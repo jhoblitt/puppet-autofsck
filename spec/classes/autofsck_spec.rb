@@ -40,26 +40,26 @@ describe 'autofsck' do
 
   # invalid arg param
   # class{ autofsck: ensure => foo }
-  context 'with ensure => foo' do
-    let(:params) { {:bar => 'foo'} }
-
-    it do
-      expect {
-        include_class('autofsck') 
-      }.to raise_error(Puppet::ParseError, /invalid parameter/)
-    end
-  end
-
-  # fail on unsupported osfamily
-  context 'unsupported osfamily' do
-    let(:facts) { {:osfamily=> 'Debian'} }
-
-    it do
-      expect {
-        include_class('autofsck') 
-      }.to raise_error(Puppet::ParseError, /Module autofsck is not supported on/)
-    end
-  end
+#   context 'with ensure => foo' do
+#     let(:params) { {:bar => 'foo'} }
+# 
+#     it do
+#       expect {
+#         include_class('autofsck') 
+#       }.to raise_error(Puppet::ParseError, /invalid parameter/)
+#     end
+#   end
+# 
+#   # fail on unsupported osfamily
+#   context 'unsupported osfamily' do
+#     let(:facts) { {:osfamily=> 'Debian'} }
+# 
+#     it do
+#       expect {
+#         include_class('autofsck') 
+#       }.to raise_error(Puppet::ParseError, /Module autofsck is not supported on/)
+#     end
+#   end
 
 end
 
