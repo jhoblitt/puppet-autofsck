@@ -8,6 +8,5 @@ source 'https://github.com/jhoblitt/puppet-autofsck.git'
 summary 'enable unattended forced fsck on boot'
 description 'A simple puppet module to enable automatic / forced / completely
 unattended fsck on boot up.  Typically, this means passing the `-y` flag to
-fsck'.
+fsck.'
 dependency 'puppetlabs/stdlib', '>= 0.1.5'
-
