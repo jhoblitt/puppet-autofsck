@@ -7,7 +7,7 @@
 # === Parameters
 #
 # ensure
-#   present|absent - default value is present 
+#   present|absent - default value is present
 #
 # === Examples
 #
@@ -29,11 +29,11 @@ class autofsck ($ensure = 'present') {
 
   case $::osfamily {
     RedHat: {
-      file { "/etc/sysconfig/autofsck":
+      file { '/etc/sysconfig/autofsck':
+        ensure  => $ensure,
         owner   => 'root',
         group   => 'root',
-        mode    => 0644,
-        ensure  => $ensure,
+        mode    => '0644',
         replace => true,
         content => "AUTOFSCK_DEF_CHECK=\"yes\"\nAUTOFSCK_OPT=\"-y\"\n",
       }
