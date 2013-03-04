@@ -1,0 +1,11 @@
+`v1.0.1`
+========
+
+Joshua Hoblitt <jhoblitt@cpan.org> (6):
+      * ignore pkg/ dir
+      * change license from GPLv2 or later to Apache 2.0
+      * cleanup code to pass puppet-lint and add the 'lint' rake target
+      * enable travis-ci support
+      * change module version to v1.0.1
+      * fix negative tests
+
