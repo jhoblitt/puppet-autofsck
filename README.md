@@ -1,6 +1,8 @@
 Puppet autofsck Module
 ======================
 
+[![Build Status](https://travis-ci.org/jhoblitt/puppet-autofsck.png)](https://travis-ci.org/jhoblitt/puppet-autofsck)
+
 Description
 -----------
 
