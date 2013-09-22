@@ -1,13 +1,15 @@
 # == Class: autofsck
 #
-# A simple puppet module to enable automatic / forced / completely
-# unattended fsck on boot up.  Typically, this means passing the `-y` flag to
-# fsck
+# Enable unattended fsck on boot
 #
 # === Parameters
 #
 # [*ensure*]
-#   present|absent - default value is present
+#  String. Possible values: 'present', 'absent'
+#
+#  Enables or disables unattended `fsck`ing on boot.
+#
+#  Default: 'present'
 #
 # === Examples
 #
