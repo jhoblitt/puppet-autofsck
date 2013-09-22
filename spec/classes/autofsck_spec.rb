@@ -1,47 +1,43 @@
 require 'spec_helper'
 
-describe 'autofsck' do
-  let(:title) { 'redhat' }
-  let(:facts) { {:osfamily=> 'RedHat'} }
-  # include autofsck
-  context 'default params' do
+describe 'autofsck', :type => :class do
+  let(:facts) {{:osfamily=> 'RedHat'}}
+
+  shared_examples 'generic' do |state|
     it do
       should include_class('autofsck')
       should contain_file('/etc/sysconfig/autofsck').with({
-        'ensure' => 'present',
+        'ensure' => state,
         'owner'  => 'root',
         'group'  => 'root',
         'mode'   => '0644',
       })
     end
+    it "/etc/sysconfig/autofsck should contain correct contents" do
+      verify_contents(subject, '/etc/sysconfig/autofsck', [
+        'AUTOFSCK_DEF_CHECK="yes"',
+        'AUTOFSCK_OPT="-y"',
+      ])
+    end
   end
 
+  describe 'default params' do
+    it_behaves_like 'generic', 'present'
+  end
 
-  # class{ autofsck: ensure => present }
-  context 'with ensure => present' do
+  describe 'with ensure => present' do
     let(:params) { {:ensure => 'present'} }
 
-    it do
-      should include_class('autofsck')
-      should contain_file('/etc/sysconfig/autofsck') 
-    end
+    it_behaves_like 'generic', 'present'
   end
 
-  # class{ autofsck: ensure => absent }
-  context 'with ensure => absent' do
+  describe 'with ensure => absent' do
     let(:params) { {:ensure => 'absent'} }
 
-    it do
-      should include_class('autofsck')
-      should contain_file('/etc/sysconfig/autofsck').with({
-        'ensure' => 'absent',
-      })
-    end
+    it_behaves_like 'generic', 'absent'
   end
 
-  # invalid arg param
-  # class{ autofsck: ensure => foo }
-  context 'with ensure => foo' do
+  describe 'with ensure => foo' do
     let(:params) { {:ensure => 'foo'} }
  
     it do
@@ -52,7 +48,7 @@ describe 'autofsck' do
   end
 
   # fail on unsupported osfamily
-  context 'unsupported osfamily' do
+  describe 'unsupported osfamily' do
     let(:facts) { {:osfamily=> 'Debian'} }
  
     it do

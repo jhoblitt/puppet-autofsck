@@ -6,7 +6,7 @@
 #
 # === Parameters
 #
-# ensure
+# [*ensure*]
 #   present|absent - default value is present
 #
 # === Examples
@@ -23,7 +23,6 @@
 #
 # Copyright (C) 2012-2013 Joshua Hoblitt
 #
-
 class autofsck ($ensure = 'present') {
   validate_re($ensure, '^present$|^absent$')
 
