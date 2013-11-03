@@ -10,5 +10,6 @@ gem 'rake'
 gem 'puppetlabs_spec_helper'
 gem 'puppet-lint'
 gem 'puppet-syntax'
+gem 'coveralls', :require => false
 
 # vim:ft=ruby
