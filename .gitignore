@@ -4,4 +4,3 @@ Gemfile.lock
 *.orig
 *.rej
 *.patch
-coverage/
