@@ -5,7 +5,7 @@ describe 'autofsck', :type => :class do
 
   shared_examples 'generic' do |state|
     it do
-      should include_class('autofsck')
+      should contain_class('autofsck')
       should contain_file('/etc/sysconfig/autofsck').with({
         'ensure' => state,
         'owner'  => 'root',
@@ -42,7 +42,7 @@ describe 'autofsck', :type => :class do
  
     it do
       expect {
-        should include_class('autofsck') 
+        should contain_class('autofsck')
       }.to raise_error(Puppet::Error, /^validate_re\(\)/)
     end
   end
@@ -72,7 +72,7 @@ describe 'autofsck', :type => :class do
  
     it do
       expect {
-        should include_class('autofsck') 
+        should contain_class('autofsck')
       }.to raise_error(Puppet::Error, /^Module autofsck is not supported on/)
     end
   end
