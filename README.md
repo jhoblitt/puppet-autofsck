@@ -79,12 +79,13 @@ Default: 'present'
 Limitations
 -----------
 
-At present, only support for `$::osfamily == 'RedHat'` has been implimented.
+At present, only supports Debian and Redhat based distributions.
 
 ### Tested Platforms
 
 * el5.x
 * el6.x
+* Ubuntu/Debian
 
 
 Support
