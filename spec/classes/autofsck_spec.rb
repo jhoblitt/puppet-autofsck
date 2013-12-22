@@ -47,9 +47,28 @@ describe 'autofsck', :type => :class do
     end
   end
 
+  context 'On Debian' do
+    describe 'With ensure => present' do
+      let(:facts) { {:osfamily=> 'Debian'} }
+      let(:params) { {:ensure => 'present'} }
+      it { should_not contain_file('/etc/sysconfig/autofsck') }
+      it { should contain_augeas('fsckfix').\
+        with_changes('set FSCKFIX yes')
+      }
+    end
+    describe 'With ensure => absent' do
+      let(:facts) { {:osfamily=> 'Debian'} }
+      let(:params) { {:ensure => 'absent'} }
+      it { should_not contain_file('/etc/sysconfig/autofsck') }
+      it { should contain_augeas('fsckfix').\
+        with_changes('set FSCKFIX no')
+      }
+    end
+  end
+
   # fail on unsupported osfamily
   describe 'unsupported osfamily' do
-    let(:facts) { {:osfamily=> 'Debian'} }
+    let(:facts) { {:osfamily=> 'Freebsd'} }
  
     it do
       expect {

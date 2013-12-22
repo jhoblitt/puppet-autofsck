@@ -39,6 +39,16 @@ class autofsck ($ensure = 'present') {
         content => "AUTOFSCK_DEF_CHECK=\"yes\"\nAUTOFSCK_OPT=\"-y\"\n",
       }
     }
+    Debian: {
+      $set_fsckfix = $ensure ? {
+        'present' => 'yes',
+        'absent'  => 'no',
+      }
+      augeas { 'fsckfix':
+        context => '/files/etc/default/rcS',
+        changes => "set FSCKFIX ${set_fsckfix}",
+      }
+    }
     default: {
       fail("Module ${module_name} is not supported on ${::operatingsystem}")
     }
