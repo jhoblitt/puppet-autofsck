@@ -14,7 +14,9 @@ Puppet autofsck Module
     * [Disable](#disable)
 4. [Limitations](#limitations)
     * [Tested Platforms](#tested-platforms)
-5. [Support](#support)
+5. [Versioning](#versioning)
+6. [Support](#support)
+7. [See Also](#see-also)
 
 
 Overview
@@ -53,11 +55,9 @@ Usage
 
 * `ensure`
 
-String. Possible values: 'present', 'absent'
+`String` Possible values: 'present', 'absent'. Defaults to: 'present'
 
 Enables or disables unattended `fsck`ing on boot.
-
-Default: 'present'
 
 ### Enable
 
@@ -88,8 +88,22 @@ At present, only supports Debian and Redhat based distributions.
 * Ubuntu/Debian
 
 
+Versioning
+----------
+
+This module is versioned according to the [Semantic Versioning
+2.0.0](http://semver.org/spec/v2.0.0.html) specification.
+
+
 Support
 -------
 
 Please log tickets and issues at
 [github](https://github.com/jhoblitt/puppet-autofsck/issues)
+
+
+See Also
+--------
+
+ * [EL6 `/etc/rc.d/rc.sysinit` script](https://git.fedorahosted.org/cgit/initscripts.git/tree/rc.d/rc.sysinit?id=initscripts-9.03.40-1)
+ * [Ubuntu QuickTip #4](https://help.ubuntu.com/community/QuickTips#Tip_.234_Check_for_and_fix_filesystem_errors_on_boot)
