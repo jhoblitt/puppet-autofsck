@@ -10,10 +10,14 @@ gem 'rake',                    :require => false
 gem 'puppetlabs_spec_helper',  :require => false
 gem 'puppet-lint',             :require => false
 gem 'puppet-syntax',           :require => false
+gem 'rspec-puppet',            :require => false
+# rspec 3 spews warnings with rspec-puppet 1.0.1
+gem 'rspec-core', '~> 2.0',   :require => false
+
 # rspec-puppet > 1 appears to breaks rspec-puppet-augeas 0.2.3
 # see https://github.com/domcleal/rspec-puppet-augeas/issues/9
-gem 'rspec-puppet', '0.1.6',   :require => false
-gem 'rspec-puppet-augeas',     :require => false
+# rspec-puppet-augeas requires rspec-puppet < 1
+gem 'rspec-puppet-augeas', '0.3.0',    :require => false
 gem 'ruby-augeas',             :require => false
 
 # vim:ft=ruby
