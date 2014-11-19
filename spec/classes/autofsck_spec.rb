@@ -13,7 +13,7 @@ describe 'autofsck', :type => :class do
     end
     it { should_not contain_augeas('fsckfix') }
     it "/etc/sysconfig/autofsck should contain correct contents" do
-      verify_contents(subject, '/etc/sysconfig/autofsck', [
+      verify_contents(catalogue, '/etc/sysconfig/autofsck', [
         'AUTOFSCK_DEF_CHECK="yes"',
         'AUTOFSCK_OPT="-y"',
       ])
