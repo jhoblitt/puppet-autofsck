@@ -11,8 +11,8 @@ gem 'puppetlabs_spec_helper',  :require => false
 gem 'puppet-lint',             :require => false
 gem 'puppet-syntax',           :require => false
 gem 'rspec-puppet',
-  :git => 'https://github.com/rodjek/rspec-puppet.git',
-  :ref => '6ac97993fa972a15851a73d55fe3d1c0a85172b5',
+  :git => 'https://github.com/joshcooper/rspec-puppet.git',
+  :ref => '311ac19d9925767f375df2d0ee411c38ca4f9483',
   :require => false
 # rspec 3 spews warnings with rspec-puppet 1.0.1
 gem 'rspec-core', '~> 2.0',    :require => false
