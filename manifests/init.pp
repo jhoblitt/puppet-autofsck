@@ -29,7 +29,7 @@ class autofsck ($ensure = 'present') {
   validate_re($ensure, '^present$|^absent$')
 
   case $::osfamily {
-    RedHat: {
+    'RedHat': {
       file { '/etc/sysconfig/autofsck':
         ensure  => $ensure,
         owner   => 'root',
@@ -39,7 +39,7 @@ class autofsck ($ensure = 'present') {
         content => "AUTOFSCK_DEF_CHECK=\"yes\"\nAUTOFSCK_OPT=\"-y\"\n",
       }
     }
-    Debian: {
+    'Debian': {
       $set_fsckfix = $ensure ? {
         'present' => 'yes',
         'absent'  => 'no',
