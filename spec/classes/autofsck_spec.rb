@@ -13,7 +13,7 @@ describe 'autofsck', :type => :class do
     end
     it { should_not contain_augeas('fsckfix') }
     it "/etc/sysconfig/autofsck should contain correct contents" do
-      verify_contents(subject, '/etc/sysconfig/autofsck', [
+      verify_contents(catalogue, '/etc/sysconfig/autofsck', [
         'AUTOFSCK_DEF_CHECK="yes"',
         'AUTOFSCK_OPT="-y"',
       ])
@@ -65,9 +65,7 @@ describe 'autofsck', :type => :class do
       let(:params) { {:ensure => 'foo'} }
 
       it do
-        expect {
-          should contain_class('autofsck')
-        }.to raise_error(Puppet::Error, /^validate_re\(\)/)
+        should raise_error(Puppet::Error, /^validate_re\(\)/)
       end
     end
   end # On RedHat
@@ -97,9 +95,7 @@ describe 'autofsck', :type => :class do
     let(:facts) { {:osfamily=> 'Freebsd'} }
 
     it do
-      expect {
-        should contain_class('autofsck')
-      }.to raise_error(Puppet::Error, /^Module autofsck is not supported on/)
+      should raise_error(Puppet::Error, /^Module autofsck is not supported on/)
     end
   end
 
